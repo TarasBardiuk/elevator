@@ -19,3 +19,10 @@ script:
 test:
   adapter: postgresql
   database: travis_ci_test
+
+addons:
+  code_climate:
+    repo_token: eaee36b742a18800a908b647a1b30fa0ac5679b92b3b104875557eba30325370
+
+after_success:
+  - bundle exec codeclimate-test-reporter
