@@ -13,6 +13,9 @@ before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database test;' -U postgres
 
+script:
+  - bundle exec rubocop
+
 test:
   adapter: postgresql
   database: travis_ci_test

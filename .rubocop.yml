@@ -1,0 +1,18 @@
+# This is the configuration used to check the rubocop source code.
+
+Documentation:
+  Enabled: false
+
+Rails:
+    Enabled: true
+
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'config/initializers/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+  TargetRubyVersion: 2.4
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
