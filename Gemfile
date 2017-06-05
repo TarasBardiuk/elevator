@@ -29,6 +29,11 @@ group :development do
   gem 'web-console',           '>= 3.3.0'
 end
 
+group :test do
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'simplecov'
+end
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Turbolinks makes navigating your web application faster.
