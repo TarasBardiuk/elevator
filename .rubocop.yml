@@ -10,6 +10,7 @@ AllCops:
   Exclude:
     - 'bin/*'
     - 'config/initializers/*'
+    - 'db/**/*'
     - 'tmp/**/*'
     - 'vendor/**/*'
   TargetRubyVersion: 2.4
