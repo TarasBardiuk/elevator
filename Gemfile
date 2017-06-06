@@ -15,11 +15,16 @@ gem 'puma',         '~> 3.7'
 gem 'rails',        '~> 5.1.1'
 gem 'rubocop',      '~> 0.49.1', require: false
 gem 'sass-rails',   '~> 5.0'
+gem 'slim-rails'
 gem 'uglifier',     '>= 1.3.0'
 
 group :development, :test do
-  gem 'byebug',            platforms: %i[mri mingw x64_mingw]
-  gem 'capybara',          '~> 2.13'
+  gem 'byebug',                  platforms: %i[mri mingw x64_mingw]
+  gem 'capybara',                '~> 2.13'
+  gem 'factory_girl_rails',      '~> 4.0'
+  gem 'faker'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 3.5'
   gem 'selenium-webdriver'
 end
 
