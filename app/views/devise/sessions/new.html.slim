@@ -1,0 +1,15 @@
+h2=title 'Вхід в систему'
+= simple_form_for(resource, as: resource_name,
+                            url: session_path(resource_name)) do |f|
+  .field
+    = f.input :email, label: 'Email:',
+      placeholder: 'Вкажіть email облікового запису', autofocus: true
+  .field
+    = f.input :password, label: 'Пароль:',
+      placeholder: '******', autocomplete: 'off'
+  - if devise_mapping.rememberable?
+    .field
+      = f.input :remember_me, label: 'Запам\'ятати мене', as: :boolean
+  .actions
+    = f.submit 'Ввійти в систему'
+= render 'devise/shared/links'

@@ -1,0 +1,26 @@
+h2=title 'Редагування профілю' + admin_name(current_admin.first_name, 
+                                            current_admin.last_name)
+= simple_form_for(resource, as: resource_name,
+                            url: admin_registration_path,
+                            html: { method: :patch }) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :email, required: true, autofocus: true
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      p
+        | Очікується підтвердження для:
+        = resource.unconfirmed_email
+    = f.input :first_name, label: 'Ім\'я', required: true,
+      placeholder: 'вкажіть своє ім\'я'
+    = f.input :last_name, label: 'Прізвище', required: true,
+      placeholder: 'вкажіть своє прізвище'
+    = f.input :password, label: 'Новий пароль', autocomplete: 'off',
+      placeholder: 'залишіть пустим, якщо не змінюєте', required: false
+    = f.input :password_confirmation, label: 'Новий пароль ще раз',
+      placeholder: 'залишіть пустим, якщо не змінюєте', required: false
+    = f.input :current_password, label: 'Поточний пароль', required: true,
+      placeholder: '******',
+      hint: 'введенням паролю Ви підтверджуєте правильність внесених змін'
+  .form-actions
+    = f.button :submit, 'Зберегти зміни'
+= link_to 'Назад', :back

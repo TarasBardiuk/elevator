@@ -17,3 +17,7 @@ AllCops:
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: nested
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'

@@ -1,0 +1,11 @@
+h2=title 'Відновлення паролю'
+= simple_form_for(resource, as: resource_name,
+                            url: password_path(resource_name),
+                            html: { method: :post }) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :email, label: 'Email:', required: true,
+              placeholder: 'Вкажіть email облікового запису', autofocus: true
+  .form-actions
+    = f.button :submit, 'Отримати інструкції по відновленню паролю'
+= render 'devise/shared/links'
