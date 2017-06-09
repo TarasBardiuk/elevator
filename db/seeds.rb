@@ -11,6 +11,12 @@
 # Character.create(name: 'Luke', movie: movies.first)
 # Admin.create!({email: "gu2y@gmail.com", password: "111111", password_confirmation: "111111" })
 
-FactoryGirl.create(:admin, email: 'taras.bardyuk@gmail.com',
-                   first_name: 'Taras', last_name: 'Bardiuk',
-                   password: '12345678')
+Admin.where(email: 'taras.bardyuk@gmail.com')
+     .first_or_create(first_name: 'Taras',
+                      last_name: 'Bardiuk',
+                      password: '666666')
+
+StaticInfo.where(email: 'example@example.com')
+          .first_or_create(phones: {'Служба підтримки': '+380984552576', 
+                                    'Відділ продажів': '+380505089224',
+                                    'Сервісний центр': '+380322450352'})
