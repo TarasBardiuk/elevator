@@ -14,6 +14,7 @@ Rails.application.routes.draw do
                        as: 'admin_registration'
   end
 
-  get  'update_info', to: 'static_pages#update_info'
-  root 'static_pages#home'
+  get   'edit_info',        to: 'static_pages#edit_info'
+  patch 'update_info',      to: 'static_pages#update_info', as: :update_info
+  root  'static_pages#home'
 end

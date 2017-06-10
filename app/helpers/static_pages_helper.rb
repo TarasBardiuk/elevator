@@ -4,20 +4,10 @@ module StaticPagesHelper
   def admin_name(first_name, last_name)
     ' ' + [first_name, last_name].join(' ')
   end
-
-  def static_info_converter(obj)
-    result = {}
-    byebug
-    # eval(obj.phones).each {|key, value| result.merge{key: value} }
-    # do |key, value|
-    #   result.merge{key: value}
-    # end
-    # result
-  end
 end
 
 class CustomFieldsDecorator
-  MODEL_NAME = ActiveModel::Name.new(self.class, nil, 'custom_fields')
+  MODEL_NAME = ActiveModel::Name.new(self.class, nil, 'phones')
 
   def model_name
     MODEL_NAME
@@ -33,10 +23,16 @@ class CustomFieldsDecorator
       @object[method]
     elsif @object.respond_to? method
       @object.send(method, *args, &block)
+    else
+      super
     end
   end
 
-  def has_attribute? attr
+  def respond_to_missing?(*methods)
+    super
+  end
+
+  def attribute?(attr)
     @object.key? attr
   end
 end

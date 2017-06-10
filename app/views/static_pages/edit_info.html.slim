@@ -1,0 +1,19 @@
+h1 StaticPages#edit_info
+p Файл знаходиться в app/views/static_pages/update_info.html.slim
+= link_to 'Увійти', new_admin_session_path
+|  |
+= link_to 'Вийти', destroy_admin_session_path, method: :delete
+
+h2= title 'Редагування сайту'
+- custom_hash = CustomFieldsDecorator.new(@static_info.phones)
+= simple_form_for @static_info, url: update_info_path do |f|
+  .form-inputs
+    = f.input :email, required: true, autofocus: true,
+            placeholder: 'email не може бути пустим'
+    = f.simple_fields_for custom_hash do |field|
+      - custom_hash.each do |key, value|
+        = field.input key, label: key, required: false,
+                           placeholder: 'залишіть пустим, щоб не виводити'
+  .form-actions
+    = f.button :submit, 'Зберегти зміни'
+= link_to 'Назад', :back
