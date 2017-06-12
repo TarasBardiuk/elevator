@@ -18,5 +18,5 @@ Admin.where(email: 'taras.bardyuk@gmail.com')
 
 StaticInfo.where(email: 'example@example.com')
           .first_or_create(phones: {'Служба підтримки': '+380984552576', 
-                                    'Відділ продажів': '+380505089224',
+                                    'Відділ продажу': '+380505089224',
                                     'Сервісний центр': '+380322450352'})
