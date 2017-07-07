@@ -7,10 +7,11 @@ class HashValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     value.each do |key, val|
       if key.empty?
-        record.errors.add(attribute, 'не може бути пустим')
+        record.errors.add(attribute, 'назва служби не може бути пустою')
       elsif key !~ REGEXP_SERVISE
-        record.errors.add(key, 'може бути довжиною від 5 до 20 символів і
-                                містити тільки букви, цифри і пробіл')
+        record.errors.add(key, 'назва служби може бути довжиною від 5 до 20
+                                символів і містити тільки букви, цифри і
+                                пробіл')
       elsif val !~ REGEXP_PHONE
         record.errors.add(val, 'може бути пустим або довжиною до 20 символів і
                                 має відповідати заданому формату')
